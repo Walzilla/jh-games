@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JH Games — Browser Games Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Animated background grid -->
+<canvas id="bg-canvas"></canvas>
+
+<header>
+    <h1 class="logo">JH GAMES</h1>
+    <p class="subtitle">Browser Games Collection</p>
+</header>
+
+<main>
+    <div class="games-grid">
+
+        <!-- Throne Guard -->
+        <div class="game-card">
+            <div class="card-preview throne-guard">
+                <div class="preview-icon">&#9876;</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Throne Guard</h2>
+                <p class="card-desc">Medieval tower defense with 70 stages, PvP, and endless mode</p>
+                <a href="https://throne-guard.pages.dev" target="_blank" rel="noopener" class="play-btn">PLAY</a>
+            </div>
+        </div>
+
+        <!-- Realm of Shadows -->
+        <div class="game-card">
+            <div class="card-preview realm-of-shadows">
+                <div class="preview-icon">&#9760;</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Realm of Shadows</h2>
+                <p class="card-desc">Pixel action RPG with dungeons, bosses, and 4 classes</p>
+                <a href="https://realm-of-shadows.pages.dev" target="_blank" rel="noopener" class="play-btn">PLAY</a>
+            </div>
+        </div>
+
+        <!-- HAVOC -->
+        <div class="game-card">
+            <div class="card-preview havoc">
+                <div class="preview-icon">&#9939;</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">HAVOC</h2>
+                <p class="card-desc">Tactical FPS with 8 agents, 14 weapons, and 3 game modes</p>
+                <a href="https://havoc-a93.pages.dev" target="_blank" rel="noopener" class="play-btn">PLAY</a>
+            </div>
+        </div>
+
+        <!-- Nitro Surge -->
+        <div class="game-card">
+            <div class="card-preview nitro-surge">
+                <div class="preview-icon">&#9881;</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Nitro Surge</h2>
+                <p class="card-desc">Sci-fi kart racing with circuit tracks and power-ups</p>
+                <a href="https://nitro-surge.pages.dev" target="_blank" rel="noopener" class="play-btn">PLAY</a>
+            </div>
+        </div>
+
+        <!-- Pixel Dash -->
+        <div class="game-card">
+            <div class="card-preview pixel-dash">
+                <div class="preview-icon">&#9733;</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Pixel Dash</h2>
+                <p class="card-desc">Classic retro platformer with 54 levels and 9 worlds</p>
+                <a href="https://pixel-dash.pages.dev" target="_blank" rel="noopener" class="play-btn">PLAY</a>
+            </div>
+        </div>
+
+        <!-- Random Song Player -->
+        <div class="game-card">
+            <div class="card-preview random-song-player">
+                <div class="preview-icon">&#9835;</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Random Song Player</h2>
+                <p class="card-desc">Full-featured music player with YouTube integration</p>
+                <a href="https://random-song-player.pages.dev" target="_blank" rel="noopener" class="play-btn">PLAY</a>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="cloud-note">All games feature cloud save with JH Games accounts</p>
+</main>
+
+<footer>
+    <p class="footer-text">Created by JH Games &copy; 2026</p>
+    <a href="https://github.com/Walzilla" target="_blank" rel="noopener" class="github-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        GitHub
+    </a>
+</footer>
+
+<script>
+// Animated particle/grid background
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let w, h, particles;
+
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+
+function createParticles() {
+    particles = [];
+    const count = Math.floor((w * h) / 12000);
+    for (let i = 0; i < count; i++) {
+        particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            size: Math.random() * 2 + 0.5,
+            alpha: Math.random() * 0.4 + 0.1
+        });
+    }
+}
+
+function drawParticles() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = w;
+        if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        if (p.y > h) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(100, 140, 255, ${p.alpha})`;
+        ctx.fill();
+    }
+    // Draw lines between close particles
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(100, 140, 255, ${0.06 * (1 - dist / 120)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+    requestAnimationFrame(drawParticles);
+}
+
+window.addEventListener('resize', () => { resize(); createParticles(); });
+resize();
+createParticles();
+drawParticles();
+</script>
+
+</body>
+</html>
